@@ -295,7 +295,8 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 @media (min-width: 768px) {
@@ -328,7 +329,7 @@ onMounted(() => {
 
 .carousel-viewport {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -341,7 +342,8 @@ onMounted(() => {
 .carousel-track {
   display: flex;
   gap: 1.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  align-items: stretch;
 }
 
 .project-card {
@@ -353,6 +355,8 @@ onMounted(() => {
   border-radius: 16px;
   overflow: hidden;
   transition: border-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 480px) {
@@ -412,6 +416,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  flex: 1;
 }
 
 .card-title {
@@ -451,7 +456,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   gap: 1.2rem;
-  margin-top: 0.5rem;
+  margin-top: auto;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
