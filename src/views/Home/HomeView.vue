@@ -317,4 +317,20 @@ onMounted(() => {
     max-width: 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 0 1.5rem;
+  }
+
+  .hero-photo {
+    width: 200px;
+    height: 260px;
+  }
+
+  .scroll-indicator {
+    right: 1.5rem;
+    bottom: 2rem;
+  }
+}
 </style>

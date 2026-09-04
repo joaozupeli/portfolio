@@ -16,36 +16,52 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Em breve',
-    description: 'Primeiro projeto será adicionado aqui com detalhes completos.',
-    image: '',
-    tags: ['Microservices', 'Node.js', 'TypeScript'],
-    github: '#',
-    live: '#',
+    title: 'OdontoProto',
+    description: 'Sistema de conversão de leads para clínicas odontológicas. Landing page profissional com foco em agendamento.',
+    image: '/projects/odontoproto.png',
+    tags: ['Vue.js', 'TypeScript', 'Landing Page'],
+    github: 'https://github.com/joaozupeli/odontoproto',
+    live: 'https://odontotype.vercel.app',
   },
   {
-    title: 'Em breve',
-    description: 'Segundo projeto será adicionado aqui com detalhes completos.',
-    image: '',
-    tags: ['Cloud', 'Docker', 'CI/CD'],
-    github: '#',
-    live: '#',
+    title: 'Lara Pontes',
+    description: 'Demo personalizada para Dra. Lara Pontes (ortodontia, Porto Velho). Case study baseado no odontoproto.',
+    image: '/projects/laraPontes.png',
+    tags: ['Vue.js', 'Personalização', 'Vercel'],
+    github: 'https://github.com/joaozupeli/laraPontes',
+    live: 'https://larapontes.vercel.app',
   },
   {
-    title: 'Em breve',
-    description: 'Terceiro projeto será adicionado aqui com detalhes completos.',
-    image: '',
-    tags: ['Full-stack', 'Vue.js', 'Java'],
-    github: '#',
-    live: '#',
+    title: 'ClinProto',
+    description: 'Template para clínicas médicas e consultórios. Design moderno e responsivo focado em conversão.',
+    image: '/projects/clinproto.png',
+    tags: ['Vue.js', 'Healthcare', 'Template'],
+    github: 'https://github.com/joaozupeli/clinproto',
+    live: 'https://clintype.vercel.app',
   },
   {
-    title: 'Em breve',
-    description: 'Quarto projeto será adicionado aqui com detalhes completos.',
+    title: 'AdvocProto',
+    description: 'Sistema de landing page para escritórios de advocacia. Foco em credibilidade e captação de clientes.',
+    image: '/projects/advocproto.png',
+    tags: ['Vue.js', 'Legal Tech', 'Template'],
+    github: 'https://github.com/joaozupeli/advocproto',
+    live: 'https://advoctype.vercel.app',
+  },
+  {
+    title: 'Buglan',
+    description: 'Controle total da sua vida em um só lugar. Sistema de gestão pessoal completo e intuitivo.',
+    image: '/projects/buglan.png',
+    tags: ['JavaScript', 'Full-stack', 'Productivity'],
+    github: 'https://github.com/joaozupeli/buglan',
+    live: 'https://cicacenter-omega.vercel.app',
+  },
+  {
+    title: 'Health Data',
+    description: 'Cada consulta é um dado, cada dado é uma decisão. Sistema de gestão de dados de saúde.',
     image: '',
-    tags: ['API', 'REST', 'PostgreSQL'],
-    github: '#',
-    live: '#',
+    tags: ['Vue.js', 'Healthcare', 'Data'],
+    github: 'https://github.com/joaozupeli/health_data',
+    live: '',
   },
 ]
 
@@ -185,13 +201,27 @@ onMounted(() => {
               <span v-for="tag in project.tags" :key="tag" class="card-tag">{{ tag }}</span>
             </div>
             <div class="card-links">
-              <a :href="project.github" target="_blank" class="card-link" aria-label="GitHub">
+              <a
+                v-if="project.github"
+                :href="project.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+                aria-label="GitHub"
+              >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
                 <span>GitHub</span>
               </a>
-              <a :href="project.live" target="_blank" class="card-link" aria-label="Live">
+              <a
+                v-if="project.live"
+                :href="project.live"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+                aria-label="Live"
+              >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                   <polyline points="15 3 21 3 21 9"/>
@@ -261,11 +291,18 @@ onMounted(() => {
 <style scoped>
 .work-section {
   min-height: 100vh;
-  padding: 8rem 3rem 4rem;
+  padding: 8rem 1.5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+@media (min-width: 768px) {
+  .work-section {
+    padding: 8rem 3rem 4rem;
+  }
 }
 
 .work-header {
@@ -292,7 +329,7 @@ onMounted(() => {
 
 .carousel-viewport {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -305,17 +342,33 @@ onMounted(() => {
 .carousel-track {
   display: flex;
   gap: 1.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  align-items: stretch;
 }
 
 .project-card {
   flex-shrink: 0;
-  width: 400px;
+  width: calc(100vw - 3rem);
+  max-width: 400px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 16px;
   overflow: hidden;
   transition: border-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 480px) {
+  .project-card {
+    width: 340px;
+  }
+}
+
+@media (min-width: 768px) {
+  .project-card {
+    width: 400px;
+  }
 }
 
 .project-card:hover {
@@ -363,6 +416,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  flex: 1;
 }
 
 .card-title {
@@ -402,7 +456,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   gap: 1.2rem;
-  margin-top: 0.5rem;
+  margin-top: auto;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -470,13 +524,26 @@ onMounted(() => {
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 479px) {
   .project-card {
-    width: 320px;
+    width: calc(100vw - 3rem);
+    max-width: 340px;
   }
 
   .card-image {
-    height: 180px;
+    height: 160px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-description {
+    font-size: 0.82rem;
   }
 }
 </style>
