@@ -76,7 +76,7 @@ onMounted(() => {
         <span>Baixar Currículo</span>
       </a>
       <a
-        href="https://wa.me/5541999999999?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
+        href="https://wa.me/5569992985959?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
         target="_blank"
         rel="noopener noreferrer"
         class="cta-button cta-whatsapp"
@@ -89,9 +89,9 @@ onMounted(() => {
     </div>
 
     <div class="contact-links">
-      <a href="mailto:joao.zupeli@email.com" class="contact-link">
+      <a href="mailto:zupelidev@gmail.com" class="contact-link">
         <span class="link-label">Email</span>
-        <span class="link-value">joao.zupeli@email.com</span>
+        <span class="link-value">zupelidev@gmail.com</span>
       </a>
       <a href="https://github.com/joaozupeli" target="_blank" rel="noopener noreferrer" class="contact-link">
         <span class="link-label">GitHub</span>
