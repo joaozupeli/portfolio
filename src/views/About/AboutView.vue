@@ -173,6 +173,10 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+  .about-section {
+    padding: 8rem 1.5rem;
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
