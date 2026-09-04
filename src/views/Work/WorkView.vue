@@ -18,7 +18,7 @@ const projects: Project[] = [
   {
     title: 'OdontoProto',
     description: 'Sistema de conversão de leads para clínicas odontológicas. Landing page profissional com foco em agendamento.',
-    image: '',
+    image: '/projects/odontoproto.png',
     tags: ['Vue.js', 'TypeScript', 'Landing Page'],
     github: 'https://github.com/joaozupeli/odontoproto',
     live: 'https://odontotype.vercel.app',
@@ -26,7 +26,7 @@ const projects: Project[] = [
   {
     title: 'Lara Pontes',
     description: 'Demo personalizada para Dra. Lara Pontes (ortodontia, Porto Velho). Case study baseado no odontoproto.',
-    image: '',
+    image: '/projects/laraPontes.png',
     tags: ['Vue.js', 'Personalização', 'Vercel'],
     github: 'https://github.com/joaozupeli/laraPontes',
     live: 'https://larapontes.vercel.app',
@@ -34,7 +34,7 @@ const projects: Project[] = [
   {
     title: 'ClinProto',
     description: 'Template para clínicas médicas e consultórios. Design moderno e responsivo focado em conversão.',
-    image: '',
+    image: '/projects/clinproto.png',
     tags: ['Vue.js', 'Healthcare', 'Template'],
     github: 'https://github.com/joaozupeli/clinproto',
     live: 'https://clintype.vercel.app',
@@ -42,7 +42,7 @@ const projects: Project[] = [
   {
     title: 'AdvocProto',
     description: 'Sistema de landing page para escritórios de advocacia. Foco em credibilidade e captação de clientes.',
-    image: '',
+    image: '/projects/advocproto.png',
     tags: ['Vue.js', 'Legal Tech', 'Template'],
     github: 'https://github.com/joaozupeli/advocproto',
     live: 'https://advoctype.vercel.app',
@@ -50,7 +50,7 @@ const projects: Project[] = [
   {
     title: 'Buglan',
     description: 'Controle total da sua vida em um só lugar. Sistema de gestão pessoal completo e intuitivo.',
-    image: '',
+    image: '/projects/buglan.png',
     tags: ['JavaScript', 'Full-stack', 'Productivity'],
     github: 'https://github.com/joaozupeli/buglan',
     live: 'https://cicacenter-omega.vercel.app',
