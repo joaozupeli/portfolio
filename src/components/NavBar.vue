@@ -40,7 +40,7 @@ onMounted(() => {
 
 <template>
   <nav ref="nav" class="navbar">
-    <a class="nav-logo" @click.prevent="scrollTo('home')">ZupelliDev</a>
+    <a class="nav-logo" @click.prevent="scrollTo('home')">João Zupeli</a>
     <div class="nav-links">
       <a
         v-for="section in ['work', 'about', 'contact']"

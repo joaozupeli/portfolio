@@ -103,7 +103,7 @@ onMounted(() => {
       </a>
     </div>
     <footer class="footer">
-      <span class="footer-text">&copy; 2026 ZupelliDev — Designed & Built with Vue.js + GSAP</span>
+      <span class="footer-text">&copy; 2026 João Zupeli — Designed & Built with Vue.js + GSAP</span>
     </footer>
   </section>
 </template>

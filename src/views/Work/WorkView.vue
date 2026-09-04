@@ -290,23 +290,21 @@ onMounted(() => {
 
 <style scoped>
 .work-section {
-  min-height: 100vh;
-  padding: 8rem 1.5rem 4rem;
+  min-height: auto;
+  padding: 6rem 1.5rem 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow-x: clip;
-  overflow-y: visible;
+  justify-content: flex-start;
 }
 
 @media (min-width: 768px) {
   .work-section {
-    padding: 8rem 3rem 4rem;
+    padding: 6rem 3rem 4rem;
   }
 }
 
 .work-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-label {
@@ -333,6 +331,7 @@ onMounted(() => {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  padding-bottom: 1.5rem;
 }
 
 .carousel-viewport::-webkit-scrollbar {
@@ -342,7 +341,6 @@ onMounted(() => {
 .carousel-track {
   display: flex;
   gap: 1.5rem;
-  padding-bottom: 1rem;
   align-items: stretch;
 }
 
@@ -387,6 +385,7 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -457,7 +456,7 @@ onMounted(() => {
   justify-content: center;
   gap: 1.2rem;
   margin-top: auto;
-  padding-top: 0.75rem;
+  padding: 0.75rem 0 0.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
