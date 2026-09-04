@@ -76,7 +76,7 @@ onMounted(() => {
         <span>Baixar Currículo</span>
       </a>
       <a
-        href="https://wa.me/5569992985959?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
+        href="https://wa.me/5569993921638?text=Ol%C3%A1%20Jo%C3%A3o!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
         target="_blank"
         rel="noopener noreferrer"
         class="cta-button cta-whatsapp"
