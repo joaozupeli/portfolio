@@ -16,24 +16,24 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'Buglan',
+    description: 'Site da Buglan Tech Solutions. Automação, segurança e sistemas sob medida para empresas.',
+    image: '/projects/buglan.png',
+    tags: ['Vue.js', 'NestJS', 'Full-stack'],
+    github: 'https://github.com/joaozupeli/buglan',
+    live: 'https://buglan.vercel.app',
+  },
+  {
     title: 'OdontoProto',
-    description: 'Sistema de conversão de leads para clínicas odontológicas. Landing page profissional com foco em agendamento.',
+    description: 'Protótipo de conversão de leads para clínicas odontológicas, com foco em agendamento.',
     image: '/projects/odontoproto.png',
     tags: ['Vue.js', 'TypeScript', 'Landing Page'],
     github: 'https://github.com/joaozupeli/odontoproto',
     live: 'https://odontotype.vercel.app',
   },
   {
-    title: 'Lara Pontes',
-    description: 'Demo personalizada para Dra. Lara Pontes (ortodontia, Porto Velho). Case study baseado no odontoproto.',
-    image: '/projects/laraPontes.png',
-    tags: ['Vue.js', 'Personalização', 'Vercel'],
-    github: 'https://github.com/joaozupeli/laraPontes',
-    live: 'https://larapontes.vercel.app',
-  },
-  {
     title: 'ClinProto',
-    description: 'Template para clínicas médicas e consultórios. Design moderno e responsivo focado em conversão.',
+    description: 'Template para clínicas médicas e consultórios. Design moderno focado em conversão.',
     image: '/projects/clinproto.png',
     tags: ['Vue.js', 'Healthcare', 'Template'],
     github: 'https://github.com/joaozupeli/clinproto',
@@ -41,26 +41,42 @@ const projects: Project[] = [
   },
   {
     title: 'AdvocProto',
-    description: 'Sistema de landing page para escritórios de advocacia. Foco em credibilidade e captação de clientes.',
+    description: 'Landing page para escritórios de advocacia, com foco em credibilidade e captação.',
     image: '/projects/advocproto.png',
     tags: ['Vue.js', 'Legal Tech', 'Template'],
     github: 'https://github.com/joaozupeli/advocproto',
     live: 'https://advoctype.vercel.app',
   },
   {
-    title: 'Buglan',
-    description: 'Controle total da sua vida em um só lugar. Sistema de gestão pessoal completo e intuitivo.',
-    image: '/projects/buglan.png',
-    tags: ['JavaScript', 'Full-stack', 'Productivity'],
-    github: 'https://github.com/joaozupeli/buglan',
-    live: 'https://cicacenter-omega.vercel.app',
+    title: 'Ordinato',
+    description: 'Cockpit pessoal em Vue e NestJS para rotina, tarefas e estudos.',
+    image: '/projects/ordinato.png',
+    tags: ['Vue.js', 'NestJS', 'Full-stack'],
+    github: 'https://github.com/joaozupeli/ordinato',
+    live: '',
+  },
+  {
+    title: 'Jurisprudia',
+    description: 'IA focada em jurisprudência: precedente certo, status validado e citação verificada.',
+    image: '/projects/jurisprudia.png',
+    tags: ['IA', 'Legal Tech', 'Jurisprudência'],
+    github: 'https://github.com/joaozupeli/jurisprudia',
+    live: '',
   },
   {
     title: 'Health Data',
-    description: 'Cada consulta é um dado, cada dado é uma decisão. Sistema de gestão de dados de saúde.',
-    image: '',
-    tags: ['Vue.js', 'Healthcare', 'Data'],
+    description: 'Cada consulta é um dado, cada dado é uma decisão. Gestão de dados de saúde.',
+    image: '/projects/health_data.png',
+    tags: ['PHP', 'Healthcare', 'Data'],
     github: 'https://github.com/joaozupeli/health_data',
+    live: '',
+  },
+  {
+    title: 'BCC',
+    description: 'Estudos e exercícios dos semestres de Ciência da Computação na PUCPR.',
+    image: '/projects/bcc.png',
+    tags: ['C', 'PUCPR', 'Estudos'],
+    github: 'https://github.com/joaozupeli/bcc',
     live: '',
   },
 ]
@@ -94,26 +110,14 @@ onMounted(() => {
 
   gsap.from('#work .project-card', {
     scrollTrigger: {
-      trigger: '#work .carousel-viewport',
+      trigger: '#work .projects-grid',
       start: 'top 85%',
       toggleActions: 'play none none reverse',
     },
-    y: 50,
+    y: 40,
     opacity: 0,
-    duration: 1,
-    stagger: 0.15,
-    ease: 'power3.out',
-  })
-
-  gsap.from('#work .scroll-hint', {
-    scrollTrigger: {
-      trigger: '#work .carousel-viewport',
-      start: 'top 85%',
-      toggleActions: 'play none none reverse',
-    },
-    opacity: 0,
-    duration: 1,
-    delay: 0.6,
+    duration: 0.8,
+    stagger: 0.08,
     ease: 'power3.out',
   })
 
@@ -177,70 +181,56 @@ onMounted(() => {
       <h2 class="page-title">Projetos</h2>
     </div>
 
-    <div class="carousel-viewport">
-      <div class="carousel-track">
-        <div
-          v-for="(project, index) in projects"
-          :key="index"
-          class="project-card"
-        >
-          <div class="card-image">
-            <img
-              v-if="project.image"
-              :src="project.image"
-              :alt="project.title"
-            />
-            <div v-else class="card-image-placeholder">
-              <span class="placeholder-number">{{ String(index + 1).padStart(2, '0') }}</span>
-            </div>
+    <div class="projects-grid">
+      <div
+        v-for="project in projects"
+        :key="project.title"
+        class="project-card"
+      >
+        <div class="card-image">
+          <img
+            :src="project.image"
+            :alt="project.title"
+          />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-description">{{ project.description }}</p>
+          <div class="card-tags">
+            <span v-for="tag in project.tags" :key="tag" class="card-tag">{{ tag }}</span>
           </div>
-          <div class="card-body">
-            <h3 class="card-title">{{ project.title }}</h3>
-            <p class="card-description">{{ project.description }}</p>
-            <div class="card-tags">
-              <span v-for="tag in project.tags" :key="tag" class="card-tag">{{ tag }}</span>
-            </div>
-            <div class="card-links">
-              <a
-                v-if="project.github"
-                :href="project.github"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card-link"
-                aria-label="GitHub"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                <span>GitHub</span>
-              </a>
-              <a
-                v-if="project.live"
-                :href="project.live"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card-link"
-                aria-label="Live"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-                <span>Live</span>
-              </a>
-            </div>
+          <div class="card-links">
+            <a
+              v-if="project.github"
+              :href="project.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-link"
+              aria-label="GitHub"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a
+              v-if="project.live"
+              :href="project.live"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="card-link"
+              aria-label="Live"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              <span>Live</span>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="scroll-hint">
-      <span>arraste ou role para ver mais</span>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12"/>
-        <polyline points="12 5 19 12 12 19"/>
-      </svg>
     </div>
 
     <div ref="svgContainer" class="architecture">
@@ -325,29 +315,26 @@ onMounted(() => {
   margin: 0;
 }
 
-.carousel-viewport {
-  overflow-x: auto;
-  overflow-y: visible;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding-bottom: 1.5rem;
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
-.carousel-viewport::-webkit-scrollbar {
-  display: none;
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.carousel-track {
-  display: flex;
-  gap: 1.5rem;
-  align-items: stretch;
+@media (min-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .project-card {
-  flex-shrink: 0;
-  width: calc(100vw - 3rem);
-  max-width: 400px;
+  min-width: 0;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 16px;
@@ -357,18 +344,6 @@ onMounted(() => {
   flex-direction: column;
 }
 
-@media (min-width: 480px) {
-  .project-card {
-    width: 340px;
-  }
-}
-
-@media (min-width: 768px) {
-  .project-card {
-    width: 400px;
-  }
-}
-
 .project-card:hover {
   border-color: rgba(100, 108, 255, 0.3);
   transform: translateY(-4px);
@@ -376,7 +351,7 @@ onMounted(() => {
 
 .card-image {
   width: 100%;
-  height: 220px;
+  height: 148px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.02);
 }
@@ -394,32 +369,16 @@ onMounted(() => {
   transform: scale(1.05);
 }
 
-.card-image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(100, 108, 255, 0.06) 0%, rgba(100, 108, 255, 0.02) 100%);
-}
-
-.placeholder-number {
-  font-size: 4rem;
-  font-weight: 700;
-  color: rgba(100, 108, 255, 0.15);
-  letter-spacing: -0.03em;
-}
-
 .card-body {
-  padding: 1.5rem;
+  padding: 1.1rem 1.15rem 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.55rem;
   flex: 1;
 }
 
 .card-title {
-  font-size: 1.3rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #fff;
   margin: 0;
@@ -427,10 +386,10 @@ onMounted(() => {
 }
 
 .card-description {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.45);
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -442,12 +401,12 @@ onMounted(() => {
 }
 
 .card-tag {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #646cff;
   border: 1px solid rgba(100, 108, 255, 0.25);
-  padding: 0.3rem 0.7rem;
+  padding: 0.22rem 0.55rem;
   border-radius: 100px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   font-weight: 400;
 }
 
@@ -480,27 +439,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-.scroll-hint {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-.scroll-hint svg {
-  animation: hintArrow 1.5s ease-in-out infinite;
-}
-
-@keyframes hintArrow {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(6px); }
-}
-
 .architecture {
   margin-top: 6rem;
 }
@@ -523,12 +461,7 @@ onMounted(() => {
   height: auto;
 }
 
-@media (max-width: 479px) {
-  .project-card {
-    width: calc(100vw - 3rem);
-    max-width: 340px;
-  }
-
+@media (max-width: 639px) {
   .card-image {
     height: 160px;
   }
@@ -538,11 +471,11 @@ onMounted(() => {
   }
 
   .card-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .card-description {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 }
 </style>
